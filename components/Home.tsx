@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface HomeProps {
-  onNavigate: (page: 'home' | 'fastpay' | 'consultancy') => void;
+  onNavigate: (page: 'home' | 'fastpay' | 'consultancy' | 'payments') => void;
 }
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
@@ -13,7 +13,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           Impulsamos tu <span className="text-[#FF8C00]">Logística</span>
         </h1>
         <p className="text-2xl md:text-3xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
-          ¿Necesitas liquidez inmediata o transformar tu empresa en una máquina de eficiencia? 
+          ¿Necesitas liquidez inmediata, transformar tu empresa o gestionar tus transacciones? 
           Selecciona tu solución.
         </p>
       </section>
@@ -26,11 +26,18 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <span className="pks-btn-primary py-4 px-10 text-base">Cálculo de Liquidez</span>
         </div>
 
+        <div className="pks-card-portal group" onClick={() => onNavigate('payments')}>
+          <i className="fa-solid fa-wallet group-hover:scale-110 transition-transform"></i>
+          <h2 className="text-3xl font-black mb-6">Gestión de Pagos</h2>
+          <p className="text-gray-500 text-lg mb-10 leading-relaxed">Recibe tus anticipos y gestiona tus pagos a proveedores con múltiples métodos integrados.</p>
+          <span className="pks-btn-primary py-4 px-10 text-base bg-[#003366]">Centro de Pagos</span>
+        </div>
+
         <div className="pks-card-portal group" onClick={() => onNavigate('consultancy')}>
           <i className="fa-solid fa-compass group-hover:scale-110 transition-transform"></i>
           <h2 className="text-3xl font-black mb-6">Consultoría</h2>
           <p className="text-gray-500 text-lg mb-10 leading-relaxed">Reingeniería logística para dueños que quieren recuperar su tiempo y maximizar su rentabilidad neta.</p>
-          <span className="pks-btn-primary py-4 px-10 text-base bg-[#003366] shadow-[0_15px_35px_rgba(0,51,102,0.3)]">Ver Programa</span>
+          <span className="pks-btn-primary py-4 px-10 text-base bg-[#002244] opacity-80">Ver Programa</span>
         </div>
       </div>
     </div>
