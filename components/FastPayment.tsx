@@ -194,7 +194,8 @@ const FastPayment: React.FC = () => {
 
               <button
                 onClick={handleVerifyData}
-                className="w-full p-5 bg-[#003366] text-white text-lg font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all"
+                disabled={!isPdfUploaded}
+                className="w-full p-5 bg-[#003366] text-white text-lg font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 Verificar Datos
               </button>
@@ -202,7 +203,7 @@ const FastPayment: React.FC = () => {
 
             <button
               onClick={handleRequestTransfer}
-              disabled={isProcessing}
+              disabled={isProcessing || !isDataVerified}
               className="w-full mt-4 p-6 bg-[#FF8C00] text-white text-xl font-black uppercase rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isProcessing ? "Procesando..." : "Solicitar Transferencia"}
