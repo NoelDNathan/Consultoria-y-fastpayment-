@@ -34,6 +34,11 @@ body {
   100% { transform: scale(1.5); opacity: 0; }
 }
 
+@keyframes pks-fade-in {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .pks-biometric-scanner {
   position: relative;
   width: 120px;
@@ -166,7 +171,106 @@ body {
   filter: brightness(1.1);
 }
 
+/* Fast Payment calculator */
+.pks-calculator {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 28px;
+  background: var(--pks-color-white);
+  border: 1px solid #E5E7EB;
+  box-shadow: var(--pks-shadow-lg);
+  display: grid;
+  gap: 2rem;
+}
+
+.pks-calc__label {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--pks-color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.pks-calc__field {
+  width: 100%;
+  padding: 1.2rem 4rem 1.2rem 1.25rem;
+  border-radius: 18px;
+  border: 2px solid #E5E7EB;
+  background: #F9FAFB;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pks-color-text);
+  transition: var(--pks-transition);
+}
+
+.pks-calc__field:focus {
+  outline: none;
+  border-color: var(--pks-color-secondary);
+  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.15);
+  background: var(--pks-color-white);
+}
+
+.pks-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.pks-day-btn {
+  border: 2px solid #E5E7EB;
+  border-radius: 18px;
+  background: var(--pks-color-white);
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--pks-color-primary);
+  transition: var(--pks-transition);
+}
+
+.pks-day-btn strong {
+  font-size: 1.4rem;
+}
+
+.pks-day-btn span {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.pks-day-btn:hover {
+  border-color: var(--pks-color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.animate-fadeIn {
+  animation: pks-fade-in 0.35s ease-out;
+}
+
+.pks-result-box {
+  border-radius: 22px;
+  padding: 2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.pks-result-box .amount {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--pks-color-primary);
+}
+
 @media (max-width: 768px) {
   body { font-size: 19px; }
   .pks-nav__links { display: none; }
+  .pks-calculator { padding: 2rem 1.5rem; }
+  .pks-days-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pks-day-btn strong { font-size: 1.2rem; }
+  .pks-result-box { text-align: center; }
+  .pks-result-box .amount { font-size: 2.2rem; }
 }
